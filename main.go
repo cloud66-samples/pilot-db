@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/go-redis/redis"
 )
@@ -53,7 +54,10 @@ func main() {
 	flag.Parse()
 
 	if redisAddr == "" {
-		log.Fatal("No redis client provided")
+		redisAddr = os.Getenv("REDIS_ADDR")
+		if redisAddr == "" {
+			log.Fatal("No redis client provided, either using --redis or REDIS_ADDR")
+		}
 	}
 
 	log.Printf("Connecting to %s\n", redisAddr)
