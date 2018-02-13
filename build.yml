@@ -1,0 +1,13 @@
+build:
+  version: 2016-03-14
+  steps:
+    build:
+      name: pilot-build
+      dockerfile: Dockerfile.build
+      artifacts:
+        - /go/src/app/app
+    run:
+      name: pilot-run
+      dockerfile: Dockerfile.run
+      depends_on:
+        - build
