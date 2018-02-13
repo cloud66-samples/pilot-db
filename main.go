@@ -49,6 +49,8 @@ func startServer() error {
 }
 
 func main() {
+	log.SetOutput(os.Stdout)
+
 	flag.StringVar(&redisAddr, "redis", "", "Redis server address:port")
 	flag.IntVar(&wsPort, "port", 8080, "Web server port")
 	flag.Parse()
