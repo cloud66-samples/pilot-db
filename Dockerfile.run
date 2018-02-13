@@ -2,9 +2,9 @@ FROM debian:jessie-slim
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
-RUN apt-get install -y ca-certificates libzmq3=4.0.5+dfsg-2+deb8u1
+RUN apt-get install -y ca-certificates
 RUN mkdir /app
 
-ADD ./app /app/pilot
+ADD ./pilot /app/pilot
 
 WORKDIR /

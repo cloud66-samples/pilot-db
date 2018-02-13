@@ -5,7 +5,7 @@ build:
       name: pilot-build
       dockerfile: Dockerfile.build
       artifacts:
-        - /go/src/app/app
+        - /go/src/app/pilot
     run:
       name: pilot-run
       dockerfile: Dockerfile.run

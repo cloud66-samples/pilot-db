@@ -1,0 +1,7 @@
+services:
+  pilot:
+    git_url: https://github.com/cloud66-samples/pilot-db.git
+    git_branch: dev
+    use_habitus: true
+    use_habitus_step: run
+databases: []
