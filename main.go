@@ -35,7 +35,7 @@ func initRedisClient() error {
 }
 
 func startServer() error {
-	http.Handle("/", http.FileServer(http.Dir(".")))
+	http.Handle("/", http.FileServer(http.Dir("/www")))
 
 	err := http.ListenAndServe(fmt.Sprintf(":%d", wsPort), nil)
 	if err != nil {

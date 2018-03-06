@@ -6,7 +6,9 @@ RUN apt-get install -y ca-certificates
 RUN mkdir /app
 
 ADD ./pilot /app/pilot
-ADD ./index.html /app/index.html
-ADD ./pilot.css /app/pilot.css
+
+RUN mkdir /www
+ADD ./index.html /www/index.html
+ADD ./pilot.css /www/pilot.css
 
 WORKDIR /
