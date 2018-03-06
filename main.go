@@ -34,12 +34,9 @@ func initRedisClient() error {
 	return nil
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello!")
-}
-
 func startServer() error {
-	http.HandleFunc("/", handler)
+	http.Handle("/", http.FileServer(http.Dir(".")))
+
 	err := http.ListenAndServe(fmt.Sprintf(":%d", wsPort), nil)
 	if err != nil {
 		return err
@@ -70,6 +67,7 @@ func main() {
 	log.Println("Connected to Redis")
 
 	log.Printf("Starting web server on %d\n", wsPort)
+
 	err = startServer()
 	if err != nil {
 		log.Fatalf("Failed to start the server: %s\n", err.Error())
